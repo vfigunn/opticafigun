@@ -1,7 +1,7 @@
 
 import SectionTitle from '../ui/SectionTitle';
 import ServiceCard from '../ui/ServiceCard';
-import { Button } from '../ui/button';
+import Button from '../ui/button-custom';
 import { Link } from 'react-router-dom';
 
 const servicesData = [

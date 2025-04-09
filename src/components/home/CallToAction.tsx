@@ -1,6 +1,5 @@
-
 import { Link } from 'react-router-dom';
-import { Button } from '../ui/button';
+import Button from '../ui/button-custom';
 
 const CallToAction = () => {
   return (
