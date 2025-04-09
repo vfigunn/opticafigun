@@ -41,7 +41,7 @@ const About = () => {
                   className="mb-8"
                 />
                 <p className="text-lg text-gray-700 mb-6">
-                  Fundada hace más de dos décadas, Óptica Figun nació con la visión de brindar soluciones visuales de calidad a los habitantes de Gualeguaychú y alrededores. Lo que comenzó como un pequeño emprendimiento familiar, se ha convertido en un referente en el cuidado de la salud visual en la región.
+                  Fundada hace más de tres décadas, Óptica Figun nació con la visión de brindar soluciones visuales de calidad a los habitantes de Gualeguaychú y alrededores. Lo que comenzó como un pequeño emprendimiento familiar, se ha convertido en un referente en el cuidado de la salud visual en la región.
                 </p>
                 <p className="text-lg text-gray-700 mb-6">
                   A lo largo de los años, hemos crecido y evolucionado, incorporando tecnología de vanguardia y ampliando nuestra oferta de productos y servicios, pero manteniendo siempre la calidez y el trato personalizado que nos caracteriza.
@@ -54,8 +54,8 @@ const About = () => {
               <div className="relative">
                 <div className="absolute -inset-4 -z-10 bg-primary/10 rounded-lg blur-md"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1577744168855-4c467ccdce6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                  alt="Interior de Óptica Figun" 
+                  src="https://i.ibb.co/mCwxZbSJ/05c3dfffc55c102abbe538a13c6d6a09.jpg" 
+                  alt="Gustavo Figun" 
                   className="rounded-lg shadow-lg w-full object-cover"
                 />
               </div>
@@ -118,17 +118,14 @@ const About = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="order-2 lg:order-1">
                 <div className="aspect-w-16 aspect-h-9">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.6930047375664!2d-58.51516662426067!3d-32.99466747311384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b0071dbdce3293%3A0x8330b71f7d70e4c9!2sUrquiza%201000%2C%20Gualeguaych%C3%BA%2C%20Entre%20R%C3%ADos!5e0!3m2!1ses-419!2sar!4v1712685693261!5m2!1ses-419!2sar" 
-                    width="600" 
-                    height="450" 
-                    style={{ border: 0 }} 
-                    allowFullScreen 
-                    loading="lazy" 
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Ubicación de Óptica Figun"
-                    className="rounded-lg shadow-lg w-full h-full"
-                  ></iframe>
+                <div className="relative">
+                <div className="absolute -inset-4 -z-10 bg-primary/10 rounded-lg blur-md"></div>
+                <img 
+                  src="https://i.ibb.co/4nXp2wNQ/08dc3f7da9c4826e2814e13220f998ed.jpg" 
+                  alt="Interior de Óptica Figun" 
+                  className="rounded-lg shadow-lg w-full object-cover"
+                />
+              </div>
                 </div>
               </div>
               
@@ -159,11 +156,6 @@ const About = () => {
                   </li>
                 </ul>
                 
-                <Link to="/contacto">
-                  <Button variant="primary" size="lg">
-                    Visitanos
-                  </Button>
-                </Link>
               </div>
             </div>
           </div>

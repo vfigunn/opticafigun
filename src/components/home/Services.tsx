@@ -9,25 +9,25 @@ const servicesData = [
     id: 1,
     title: "Anteojos Recetados",
     description: "Amplia variedad de armazones y lentes personalizados para satisfacer tus necesidades visuales con la máxima precisión.",
-    imageUrl: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+    imageUrl: "https://i.ibb.co/mFdxhhvb/Captura-de-pantalla-2025-03-26-121716.png" //https://images.unsplash.com/photo-1574258495973-f010dfbb5371?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80
   },
   {
     id: 2,
     title: "Lentes de Sol",
     description: "Protección UV de alta calidad combinada con el mejor estilo. Disponemos de las mejores marcas del mercado.",
-    imageUrl: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+    imageUrl: "https://i.ibb.co/G47mS35N/Captura-de-pantalla-2025-03-26-121614.png"  //https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80
   },
   {
     id: 3,
     title: "Lentes de Contacto",
     description: "Soluciones cómodas y seguras adaptadas a tu estilo de vida, desde opciones diarias hasta mensuales y tóricas.",
-    imageUrl: "https://images.unsplash.com/photo-1600963295886-2059072e3644?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+    imageUrl: "https://i.ibb.co/s90WD2SG/93808389-2581460042102992-3128070350147651253-n.jpg"
   },
   {
     id: 4,
     title: "Exámenes Visuales",
     description: "Evaluaciones completas de la vista realizadas por profesionales experimentados utilizando tecnología de vanguardia.",
-    imageUrl: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+    imageUrl: "https://i.ibb.co/Gv0rNGRW/desktop-42e9c588-8fa6-41be-bf67-d4e56df8ad13.jpg" //https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80
   }
 ];
 

@@ -37,7 +37,7 @@ const Hero = () => {
               </Link>
               <Link to="/contacto">
                 <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white/10">
-                  Contactanos
+                  Contáctanos
                 </Button>
               </Link>
             </div>

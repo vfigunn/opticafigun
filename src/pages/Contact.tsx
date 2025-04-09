@@ -4,6 +4,7 @@ import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import SectionTitle from '../components/ui/SectionTitle';
 import ContactForm from '../components/forms/ContactForm';
+import { Facebook, Instagram, MessageCircle } from 'lucide-react';
 import { Button } from '../components/ui/button';
 
 const Contact = () => {
@@ -51,7 +52,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-800 mb-2">Dirección</h3>
-                      <p className="text-gray-600">Urquiza 1000</p>
+                      <p className="text-gray-600">Magnasco 25</p>
                       <p className="text-gray-600">Gualeguaychú, Entre Ríos, Argentina</p>
                     </div>
                   </div>
@@ -64,7 +65,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-800 mb-2">Teléfono</h3>
-                      <p className="text-gray-600">(03446) 123456</p>
+                      <p className="text-gray-600">(+549) 3446-658195</p>
                     </div>
                   </div>
                   
@@ -76,7 +77,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-800 mb-2">Email</h3>
-                      <p className="text-gray-600">info@opticafigun.com</p>
+                      <p className="text-gray-600">opticafigun@gmail.com</p>
                     </div>
                   </div>
                   
@@ -88,8 +89,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-800 mb-2">Horarios de Atención</h3>
-                      <p className="text-gray-600">Lunes a Viernes: 9:00 - 13:00 / 17:00 - 20:00</p>
-                      <p className="text-gray-600">Sábados: 9:00 - 13:00</p>
+                      <p className="text-gray-600">Lunes a Viernes: 08:30 - 12:30 / 16:30 - 19:30</p>
                     </div>
                   </div>
                   
@@ -105,34 +105,22 @@ const Contact = () => {
                         href="https://www.instagram.com/opticafigun" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center text-gray-600 hover:text-primary transition-colors"
+                        className="flex items-center hover:text-secondary transition-colors"
                       >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
-                          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
+                        <Instagram size={20} className="mr-2" />
                         @opticafigun
+                      </a>
+                      <a 
+                        href="https://www.facebook.com/optica.figun/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center hover:text-secondary transition-colors"
+                      >
+                        <Facebook size={20} className="mr-2" />
+                        @optica.figun
                       </a>
                     </div>
                   </div>
-                </div>
-                
-                <div className="mt-10">
-                  <a 
-                    href="https://www.instagram.com/opticafigun" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    <Button variant="primary" className="flex items-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                      </svg>
-                      Síguenos en Instagram
-                    </Button>
-                  </a>
                 </div>
               </div>
               
@@ -149,12 +137,12 @@ const Contact = () => {
         </section>
         
         {/* Map */}
-        <section className="pt-12 pb-0">
+        <section>
           <div className="container mx-auto">
-            <div className="bg-white rounded-t-lg shadow-lg overflow-hidden">
+            <div className="bg-white rounded-t-lg shadow-lg overflow-hidden mb-12">
               <div className="aspect-w-16 aspect-h-9 h-[500px]">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.6930047375664!2d-58.51516662426067!3d-32.99466747311384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b0071dbdce3293%3A0x8330b71f7d70e4c9!2sUrquiza%201000%2C%20Gualeguaych%C3%BA%2C%20Entre%20R%C3%ADos!5e0!3m2!1ses-419!2sar!4v1712685693261!5m2!1ses-419!2sar" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3345.818720755096!2d-58.52056042206454!3d-33.00855447502192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95baa82830e4a27b%3A0x4d8e22b569e8af49!2sOptica%20Figun!5e0!3m2!1ses!2sar!4v1744219583114!5m2!1ses!2sar" 
                   width="600" 
                   height="450" 
                   style={{ border: 0 }} 

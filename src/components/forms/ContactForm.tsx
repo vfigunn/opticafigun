@@ -81,7 +81,7 @@ const ContactForm = () => {
   };
   
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6" action='https://formspree.io/f/mblgqdea' method='POST'>
       {submitSuccess && (
         <div className="bg-green-50 p-4 rounded-md border border-green-200 mb-6 animate-fade-in">
           <p className="text-green-700">
@@ -149,7 +149,7 @@ const ContactForm = () => {
       
       <Button 
         type="submit" 
-        variant="primary"
+        variant="default"
         disabled={isSubmitting}
         className="w-full md:w-auto"
       >
