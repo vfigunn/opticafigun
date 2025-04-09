@@ -117,7 +117,7 @@ const Navbar = () => {
             {/* Mobile social media links */}
             <div className="flex items-center space-x-4 pt-2 border-t border-gray-100">
               <a
-                href="https://facebook.com"
+                href="https://facebook.com/optica.figun"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center px-4 py-2 text-primary hover:bg-gray-100 rounded-md transition-colors"
@@ -138,7 +138,7 @@ const Navbar = () => {
 
             {/* Mobile WhatsApp button */}
             <a
-              href="https://wa.me/543446123456"
+              href="https://wa.me/5493446658195"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
