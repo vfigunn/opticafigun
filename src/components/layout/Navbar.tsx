@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Facebook, Instagram, MessageCircle } from 'lucide-react';
 import logoPlaceholder from '../../assets/logo-placeholder.svg';
 
 const Navbar = () => {
@@ -46,7 +46,7 @@ const Navbar = () => {
         
         {/* Mobile menu button */}
         <button 
-          className="md:hidden text-primary"
+          className={`md:hidden ${isScrolled ? 'text-primary' : 'text-white'}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
         >
@@ -54,29 +54,50 @@ const Navbar = () => {
         </button>
         
         {/* Desktop navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <NavLink to="/" active={location.pathname === "/"}>
-            Inicio
-          </NavLink>
-          <NavLink to="/nosotros" active={location.pathname === "/nosotros"}>
-            Nosotros
-          </NavLink>
-          <NavLink to="/contacto" active={location.pathname === "/contacto"}>
-            Contacto
-          </NavLink>
-          <a 
-            href="https://www.instagram.com/opticafigun" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-primary hover:text-primary/80 transition-colors"
-            aria-label="Instagram"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-          </a>
+        <nav className="hidden md:flex items-center space-x-6">
+          <div className="flex items-center space-x-6 mr-6">
+            <NavLink to="/" active={location.pathname === "/"} isScrolled={isScrolled}>
+              Inicio
+            </NavLink>
+            <NavLink to="/nosotros" active={location.pathname === "/nosotros"} isScrolled={isScrolled}>
+              Nosotros
+            </NavLink>
+            <NavLink to="/contacto" active={location.pathname === "/contacto"} isScrolled={isScrolled}>
+              Contacto
+            </NavLink>
+          </div>
+          
+          {/* Social media links */}
+          <div className="flex items-center space-x-3">
+            <SocialLink 
+              href="https://facebook.com" 
+              aria-label="Facebook"
+              isScrolled={isScrolled}
+            >
+              <Facebook size={20} />
+            </SocialLink>
+            <SocialLink 
+              href="https://www.instagram.com/opticafigun" 
+              aria-label="Instagram"
+              isScrolled={isScrolled}
+            >
+              <Instagram size={20} />
+            </SocialLink>
+            <a 
+              href="https://wa.me/543446123456" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={`inline-flex items-center justify-center px-4 py-2 rounded-full ${
+                isScrolled 
+                  ? 'bg-primary text-white' 
+                  : 'bg-white text-primary'
+              } hover:opacity-90 transition-all`}
+              aria-label="WhatsApp"
+            >
+              <MessageCircle size={18} className="mr-2" />
+              <span className="text-sm font-medium">WhatsApp</span>
+            </a>
+          </div>
         </nav>
       </div>
       
@@ -93,18 +114,38 @@ const Navbar = () => {
             <MobileNavLink to="/contacto" active={location.pathname === "/contacto"}>
               Contacto
             </MobileNavLink>
+            
+            {/* Mobile social media links */}
+            <div className="flex items-center space-x-4 pt-2 border-t border-gray-100">
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center px-4 py-2 text-primary hover:bg-gray-100 rounded-md transition-colors"
+              >
+                <Facebook size={18} className="mr-2" />
+                Facebook
+              </a>
+              <a 
+                href="https://www.instagram.com/opticafigun" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center px-4 py-2 text-primary hover:bg-gray-100 rounded-md transition-colors"
+              >
+                <Instagram size={18} className="mr-2" />
+                Instagram
+              </a>
+            </div>
+            
+            {/* Mobile WhatsApp button */}
             <a 
-              href="https://www.instagram.com/opticafigun" 
+              href="https://wa.me/543446123456" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex items-center px-4 py-2 text-primary hover:bg-gray-100 rounded-md transition-colors"
+              className="flex items-center justify-center px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-              Instagram
+              <MessageCircle size={18} className="mr-2" />
+              Contactar por WhatsApp
             </a>
           </div>
         </div>
@@ -116,26 +157,58 @@ const Navbar = () => {
 const NavLink = ({ 
   children, 
   to, 
-  active 
+  active,
+  isScrolled 
 }: { 
   children: React.ReactNode; 
   to: string; 
   active: boolean;
+  isScrolled: boolean;
 }) => {
   return (
     <Link
       to={to}
       className={`font-medium transition-colors relative ${
         active 
-        ? 'text-primary' 
-        : 'text-gray-700 hover:text-primary'
+          ? 'text-primary' 
+          : isScrolled 
+            ? 'text-gray-700 hover:text-primary' 
+            : 'text-white hover:text-white/80'
       }`}
     >
       {children}
       {active && (
-        <span className="absolute bottom-[-4px] left-0 w-full h-[2px] bg-primary" />
+        <span className={`absolute bottom-[-4px] left-0 w-full h-[2px] ${isScrolled ? 'bg-primary' : 'bg-white'}`} />
       )}
     </Link>
+  );
+};
+
+const SocialLink = ({ 
+  children, 
+  href,
+  isScrolled,
+  ...props
+}: { 
+  children: React.ReactNode; 
+  href: string;
+  isScrolled: boolean;
+  [key: string]: any;
+}) => {
+  return (
+    <a
+      href={href}
+      target="_blank" 
+      rel="noopener noreferrer"
+      className={`transition-colors ${
+        isScrolled 
+          ? 'text-primary hover:text-primary/80' 
+          : 'text-white hover:text-white/80'
+      }`}
+      {...props}
+    >
+      {children}
+    </a>
   );
 };
 

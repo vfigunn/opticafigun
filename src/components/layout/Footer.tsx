@@ -1,5 +1,6 @@
 
 import { Link } from 'react-router-dom';
+import { Facebook, Instagram, MessageCircle } from 'lucide-react';
 import logoPlaceholder from '../../assets/logo-placeholder.svg';
 
 const Footer = () => {
@@ -66,16 +67,34 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <a 
+                  href="https://wa.me/543446123456" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center hover:text-secondary transition-colors"
+                >
+                  <MessageCircle size={20} className="mr-2" />
+                  WhatsApp
+                </a>
+              </li>
+              <li className="flex items-center">
+                <a 
+                  href="https://www.facebook.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center hover:text-secondary transition-colors"
+                >
+                  <Facebook size={20} className="mr-2" />
+                  Facebook
+                </a>
+              </li>
+              <li className="flex items-center">
+                <a 
                   href="https://www.instagram.com/opticafigun" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center hover:text-secondary transition-colors"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                  </svg>
+                  <Instagram size={20} className="mr-2" />
                   @opticafigun
                 </a>
               </li>
@@ -87,7 +106,16 @@ const Footer = () => {
           <p className="text-sm text-gray-400">
             &copy; {new Date().getFullYear()} Óptica Figun Gualeguaychú. Todos los derechos reservados.
           </p>
-          <div className="mt-4 md:mt-0">
+          <div className="mt-4 md:mt-0 flex items-center space-x-4">
+            <a 
+              href="https://www.facebook.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white hover:text-secondary transition-colors" 
+              aria-label="Facebook"
+            >
+              <Facebook size={24} />
+            </a>
             <a 
               href="https://www.instagram.com/opticafigun" 
               target="_blank" 
@@ -95,11 +123,16 @@ const Footer = () => {
               className="text-white hover:text-secondary transition-colors" 
               aria-label="Instagram"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
+              <Instagram size={24} />
+            </a>
+            <a 
+              href="https://wa.me/543446123456" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white hover:text-secondary transition-colors" 
+              aria-label="WhatsApp"
+            >
+              <MessageCircle size={24} />
             </a>
           </div>
         </div>
