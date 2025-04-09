@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import Button from '../ui/Button';
+import { Button } from '../ui/button';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({

@@ -4,7 +4,7 @@ import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import SectionTitle from '../components/ui/SectionTitle';
 import ContactForm from '../components/forms/ContactForm';
-import Button from '../components/ui/Button';
+import { Button } from '../components/ui/button';
 
 const Contact = () => {
   useEffect(() => {
