@@ -9,7 +9,7 @@ import { Button } from '../components/ui/button';
 
 const Contact = () => {
   useEffect(() => {
-    document.title = 'Óptica Figun Gualeguaychú - Contacto';
+    document.title = 'Óptica Figún | Óptica en Gualeguaychú - Contacto';
     window.scrollTo(0, 0);
   }, []);
 

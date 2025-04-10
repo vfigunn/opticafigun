@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const About = () => {
   useEffect(() => {
-    document.title = 'Óptica Figun Gualeguaychú - Nosotros';
+    document.title = 'Óptica Figún | Óptica en Gualeguaychú - Nosotros';
     window.scrollTo(0, 0);
   }, []);
 

@@ -10,7 +10,7 @@ import Footer from '../components/layout/Footer';
 
 const Index = () => {
   useEffect(() => {
-    document.title = 'Óptica Figun Gualeguaychú - Inicio';
+    document.title = 'Óptica Figún | Óptica en Gualeguaychú - Lentes de contacto, Lentes Recetados y de Sol';
     window.scrollTo(0, 0);
   }, []);
 
