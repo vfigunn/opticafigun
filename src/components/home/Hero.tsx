@@ -27,7 +27,7 @@ const Hero = () => {
               Cuidamos tu visión, mejoramos tu vida
             </h1>
             <p className="text-lg md:text-xl opacity-90 mb-8 max-w-lg animate-slide-in">
-              En Óptica Figun Gualeguaychú nos dedicamos a brindar soluciones visuales personalizadas de la más alta calidad para toda la familia.
+              En <b>Óptica Figún Gualeguaychú</b> nos dedicamos a brindar soluciones visuales personalizadas de la más alta calidad para toda la familia.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/nosotros">
@@ -47,9 +47,9 @@ const Hero = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-secondary/30 rounded-lg blur-xl"></div>
               <img 
-                src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
+                src="https://i.ibb.co/7JnwYcPx/Whats-App-Image-2025-04-10-at-15-20-09.jpg" //https://images.unsplash.com/photo-1574258495973-f010dfbb5371?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80 
                 alt="Anteojos de alta calidad" 
-                className="rounded-lg shadow-2xl relative z-10 object-cover w-full animate-fade-in"
+                className="rounded-lg shadow-2xl h-80 relative z-10 object-cover w-full animate-fade-in"
               />
             </div>
           </div>

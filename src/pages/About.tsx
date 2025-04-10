@@ -25,7 +25,7 @@ const About = () => {
               </h1>
               <div className="h-1 w-20 bg-primary mb-6"></div>
               <p className="text-xl text-gray-700">
-                Conoce más sobre Óptica Figun, nuestra trayectoria y compromiso con la salud visual en Gualeguaychú.
+                Conoce más sobre Óptica Figún, nuestra trayectoria y compromiso con la salud visual en Gualeguaychú.
               </p>
             </div>
           </div>
@@ -41,7 +41,7 @@ const About = () => {
                   className="mb-8"
                 />
                 <p className="text-lg text-gray-700 mb-6">
-                  Fundada hace más de tres décadas, Óptica Figun nació con la visión de brindar soluciones visuales de calidad a los habitantes de Gualeguaychú y alrededores. Lo que comenzó como un pequeño emprendimiento familiar, se ha convertido en un referente en el cuidado de la salud visual en la región.
+                  Fundada hace más de tres décadas, Óptica Figún nació con la visión de brindar soluciones visuales de calidad a los habitantes de Gualeguaychú y alrededores. Lo que comenzó como un pequeño emprendimiento familiar, se ha convertido en un referente en el cuidado de la salud visual en la región.
                 </p>
                 <p className="text-lg text-gray-700 mb-6">
                   A lo largo de los años, hemos crecido y evolucionado, incorporando tecnología de vanguardia y ampliando nuestra oferta de productos y servicios, pero manteniendo siempre la calidez y el trato personalizado que nos caracteriza.
@@ -135,7 +135,7 @@ const About = () => {
                   className="mb-8"
                 />
                 <p className="text-lg text-gray-700 mb-6">
-                  En Óptica Figun estamos comprometidos con la salud visual de nuestros clientes. Nos esforzamos por:
+                  En Óptica Figún estamos comprometidos con la salud visual de nuestros clientes. Nos esforzamos por:
                 </p>
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-start">

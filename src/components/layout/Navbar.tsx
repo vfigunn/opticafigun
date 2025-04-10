@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Facebook, Instagram, MessageCircle } from 'lucide-react';
-import logoPlaceholder from '../../assets/portada-modified.png'
+import logoPlaceholder from '../../assets/logo-portada-mejorado.png'
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);

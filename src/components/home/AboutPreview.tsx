@@ -47,7 +47,7 @@ const AboutPreview = () => {
               </Link>
               
               <Link to="/contacto" className="text-primary hover:underline transition-all font-medium">
-                Contactanos &rarr;
+                Contáctanos &rarr;
               </Link>
             </div>
           </div>

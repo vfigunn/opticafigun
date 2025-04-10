@@ -28,7 +28,7 @@ const CallToAction = () => {
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/contacto">
                 <Button variant="secondary" size="lg">
-                  Contactanos
+                  Contáctanos
                 </Button>
               </Link>
               <a 

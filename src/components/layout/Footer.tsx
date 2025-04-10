@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, MessageCircle } from 'lucide-react';
-import logoPlaceholder from '../../assets/portada-modified.png';
+import logoPlaceholder from '../../assets/logo-portada-mejorado.png';
 
 const Footer = () => {
   return (
