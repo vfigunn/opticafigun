@@ -104,7 +104,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} Óptica Figún Gualeguaychú. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} Óptica Figún Gualeguaychú. Todos los derechos reservados. Creado por <a href="https://github.com/vfigunn" target='_blank' className='text-white underline'> vfigun</a>
           </p>
           <div className="mt-4 md:mt-0 flex items-center space-x-4">
             <a 
