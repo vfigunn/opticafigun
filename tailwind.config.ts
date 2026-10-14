@@ -41,6 +41,10 @@ export default {
           DEFAULT: '#adb1b2',
           foreground: '#1f2937',
         },
+        whatsapp: {
+          DEFAULT: '#25D366',
+          hover: '#1EBE5D',
+        },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))'

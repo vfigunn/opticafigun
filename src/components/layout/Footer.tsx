@@ -1,32 +1,56 @@
-
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, MessageCircle } from 'lucide-react';
-import logoPlaceholder from '../../assets/logo-portada-mejorado.png';
+import { Clock, Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react';
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
+import { BUSINESS, FULL_ADDRESS, buildWhatsAppUrl } from '@/lib/business';
+import { SERVICES, servicePath } from '@/data/services';
+import logo from '@/assets/logo-optica-figun.webp';
 
 const Footer = () => {
   return (
     <footer className="bg-primary text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col items-start">
-            <Link to="/">
-              <img 
-                src={logoPlaceholder} 
-                alt="Óptica Figun Gualeguaychú" 
-                className="h-26 w-auto mb-8"
+            <Link to="/" aria-label="Óptica Figún - Inicio">
+              <img
+                src={logo}
+                alt="Óptica Figún, óptica en Gualeguaychú"
+                width={640}
+                height={250}
+                loading="lazy"
+                className="w-full max-w-[240px] h-auto mb-6"
               />
             </Link>
-            <p className="text-base text-gray-300 max-w-xs">
-              Brindando servicios ópticos de calidad y atención personalizada en Gualeguaychú desde hace años.
+            <p className="text-base text-gray-200 max-w-xs">
+              Óptica y laboratorio óptico en Gualeguaychú. Más de 30 años brindando servicios ópticos de calidad y
+              atención personalizada.
             </p>
           </div>
-          
+
           <div>
-            <h3 className="text-lg font-semibold mb-4">Enlaces</h3>
+            <h2 className="text-lg font-semibold mb-4">Servicios</h2>
+            <ul className="space-y-2">
+              {SERVICES.map((service) => (
+                <li key={service.slug}>
+                  <Link to={servicePath(service)} className="hover:text-secondary transition-colors">
+                    {service.name} en Gualeguaychú
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-lg font-semibold mb-4">Enlaces</h2>
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="hover:text-secondary transition-colors">
                   Inicio
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicios" className="hover:text-secondary transition-colors">
+                  Servicios
                 </Link>
               </li>
               <li>
@@ -41,98 +65,85 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contacto</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 flex-shrink-0 mt-1">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Magnasco 25, Gualeguaychú, Entre Ríos, Argentina</span>
-              </li>
-              <li className="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 flex-shrink-0">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-                <span>(+59) 3446-658195</span>
-              </li>
-              <li className="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 flex-shrink-0">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-                <span>opticafigun@gmail.com</span>
-              </li>
-              <li className="flex items-center">
-                <a 
-                  href="https://wa.me/5493446658195" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center hover:text-secondary transition-colors"
-                >
-                  <MessageCircle size={20} className="mr-2" />
-                  WhatsApp
-                </a>
-              </li>
-              <li className="flex items-center">
-                <a 
-                  href="https://www.facebook.com/optica.figun" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center hover:text-secondary transition-colors"
-                >
-                  <Facebook size={20} className="mr-2" />
-                  @optica.figun
-                </a>
-              </li>
-              <li className="flex items-center">
-                <a 
-                  href="https://www.instagram.com/opticafigun" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center hover:text-secondary transition-colors"
-                >
-                  <Instagram size={20} className="mr-2" />
-                  @opticafigun
-                </a>
-              </li>
-            </ul>
+            <h2 className="text-lg font-semibold mb-4">Contacto</h2>
+            <address className="not-italic">
+              <ul className="space-y-3">
+                <li>
+                  <a
+                    href={BUSINESS.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start hover:text-secondary transition-colors"
+                  >
+                    <MapPin size={20} className="mr-2 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <span>{FULL_ADDRESS}, {BUSINESS.address.countryName}</span>
+                  </a>
+                </li>
+                <li className="flex items-start">
+                  <Clock size={20} className="mr-2 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span>{BUSINESS.hoursDisplay}</span>
+                </li>
+                <li>
+                  <a href={`tel:${BUSINESS.phone}`} className="flex items-center hover:text-secondary transition-colors">
+                    <Phone size={20} className="mr-2 flex-shrink-0" aria-hidden="true" />
+                    <span>{BUSINESS.phoneDisplay}</span>
+                  </a>
+                </li>
+                <li>
+                  <a href={`mailto:${BUSINESS.email}`} className="flex items-center hover:text-secondary transition-colors">
+                    <Mail size={20} className="mr-2 flex-shrink-0" aria-hidden="true" />
+                    <span>{BUSINESS.email}</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={buildWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center hover:text-secondary transition-colors"
+                  >
+                    <WhatsAppIcon className="h-5 w-5 mr-2 flex-shrink-0" />
+                    Escribinos por WhatsApp
+                  </a>
+                </li>
+              </ul>
+            </address>
           </div>
         </div>
-        
-        <div className="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} Óptica Figún Gualeguaychú. Todos los derechos reservados. Creado por <a href="https://github.com/vfigunn" target='_blank' className='text-white underline'> vfigun</a>
+
+        <div className="border-t border-white/20 mt-8 pt-6 pb-20 md:pb-24 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm text-gray-300">
+            &copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span> Óptica Figún Gualeguaychú. Todos los derechos reservados. Creado por <a href="https://github.com/vfigunn" target='_blank' rel="noopener noreferrer" className='text-white underline'> vfigun</a>
           </p>
           <div className="mt-4 md:mt-0 flex items-center space-x-4">
-            <a 
-              href="https://www.facebook.com/optica.figun" 
-              target="_blank" 
+            <a
+              href={BUSINESS.facebook}
+              target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-secondary transition-colors" 
+              className="text-white hover:text-secondary transition-colors"
               aria-label="Facebook"
             >
               <Facebook size={24} />
             </a>
-            <a 
-              href="https://www.instagram.com/opticafigun" 
-              target="_blank" 
+            <a
+              href={BUSINESS.instagram}
+              target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-secondary transition-colors" 
+              className="text-white hover:text-secondary transition-colors"
               aria-label="Instagram"
             >
               <Instagram size={24} />
             </a>
-            <a 
-              href="https://wa.me/5493446658195" 
-              target="_blank" 
+            <a
+              href={buildWhatsAppUrl()}
+              target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-secondary transition-colors" 
+              className="text-white hover:text-secondary transition-colors"
               aria-label="WhatsApp"
             >
-              <MessageCircle size={24} />
+              <WhatsAppIcon className="h-6 w-6" />
             </a>
           </div>
         </div>

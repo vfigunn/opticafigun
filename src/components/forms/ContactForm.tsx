@@ -1,160 +1,120 @@
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
+import { BUSINESS, WHATSAPP_DEFAULT_MESSAGE, buildWhatsAppUrl } from '@/lib/business';
+import { SERVICES } from '@/data/services';
 
-import { useState } from 'react';
-import { Button } from '../ui/button';
+const TOPICS = [...SERVICES.map((service) => service.name), 'Otra consulta'];
 
+const contactSchema = z.object({
+  name: z.string().trim().min(2, 'Ingresá tu nombre'),
+  topic: z.string().optional(),
+  message: z.string().trim().max(500, 'El mensaje puede tener hasta 500 caracteres').optional(),
+});
+
+type ContactFormValues = z.infer<typeof contactSchema>;
+
+const buildMessage = ({ name, topic, message }: ContactFormValues) =>
+  [
+    WHATSAPP_DEFAULT_MESSAGE,
+    `Mi nombre es ${name.trim()}.`,
+    topic && topic !== 'Otra consulta' ? `Quiero consultar por: ${topic}.` : '',
+    message?.trim() ?? '',
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+// Formulario mínimo: arma el mensaje y abre WhatsApp listo para enviar.
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ContactFormValues>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: { name: '', topic: '', message: '' },
   });
-  
-  const [errors, setErrors] = useState<{
-    name?: string;
-    email?: string;
-    message?: string;
-  }>({});
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  
-  const validate = () => {
-    const newErrors: typeof errors = {};
-    
-    if (!formData.name.trim()) {
-      newErrors.name = 'El nombre es requerido';
-    }
-    
-    if (!formData.email.trim()) {
-      newErrors.email = 'El email es requerido';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'El email es inválido';
-    }
-    
-    if (!formData.message.trim()) {
-      newErrors.message = 'El mensaje es requerido';
-    }
-    
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+
+  const onSubmit = (values: ContactFormValues) => {
+    window.open(buildWhatsAppUrl(buildMessage(values)), '_blank', 'noopener,noreferrer');
   };
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    
-    // Clear error when field is edited
-    if (errors[name as keyof typeof errors]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: undefined
-      }));
-    }
-  };
-  
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    
-    if (!validate()) return;
-    
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setSubmitSuccess(false);
-      }, 5000);
-    }, 1000);
-  };
-  
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-6" action='https://formspree.io/f/mblgqdea' method='POST'>
-      {submitSuccess && (
-        <div className="bg-green-50 p-4 rounded-md border border-green-200 mb-6 animate-fade-in">
-          <p className="text-green-700">
-            Tu mensaje ha sido enviado correctamente. ¡Gracias por contactarnos!
-          </p>
-        </div>
-      )}
-      
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-          Nombre *
+          Tu nombre *
         </label>
         <input
-          type="text"
           id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/30 ${
+          type="text"
+          autoComplete="given-name"
+          aria-invalid={!!errors.name}
+          aria-describedby={errors.name ? 'name-error' : undefined}
+          {...register('name')}
+          className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/30 ${
             errors.name ? 'border-red-500' : 'border-gray-300'
           }`}
         />
         {errors.name && (
-          <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+          <p id="name-error" className="mt-1 text-sm text-red-600">
+            {errors.name.message}
+          </p>
         )}
       </div>
-      
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-          Email *
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/30 ${
-            errors.email ? 'border-red-500' : 'border-gray-300'
-          }`}
-        />
-        {errors.email && (
-          <p className="mt-1 text-sm text-red-500">{errors.email}</p>
-        )}
-      </div>
-      
+
+      <fieldset>
+        <legend className="block text-sm font-medium text-gray-700 mb-2">¿Sobre qué querés consultar?</legend>
+        <div className="flex flex-wrap gap-2">
+          {TOPICS.map((topic) => (
+            <label key={topic} className="cursor-pointer">
+              <input type="radio" value={topic} {...register('topic')} className="peer sr-only" />
+              <span className="inline-block rounded-full border border-gray-300 px-4 py-2 text-sm text-gray-700 transition-colors hover:border-primary peer-checked:border-primary peer-checked:bg-primary peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-primary/40">
+                {topic}
+              </span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-          Mensaje *
+          Mensaje <span className="font-normal text-gray-500">(opcional)</span>
         </label>
         <textarea
           id="message"
-          name="message"
-          rows={5}
-          value={formData.message}
-          onChange={handleChange}
-          className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/30 ${
+          rows={3}
+          aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? 'message-error' : undefined}
+          {...register('message')}
+          className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/30 ${
             errors.message ? 'border-red-500' : 'border-gray-300'
           }`}
         />
         {errors.message && (
-          <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+          <p id="message-error" className="mt-1 text-sm text-red-600">
+            {errors.message.message}
+          </p>
         )}
       </div>
-      
-      <Button 
-        type="submit" 
-        variant="default"
-        disabled={isSubmitting}
-        className="w-full md:w-auto"
-      >
-        {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
-      </Button>
+
+      <div>
+        <button
+          type="submit"
+          className="inline-flex w-full md:w-auto items-center justify-center gap-2 h-12 px-6 rounded-md bg-green-700 text-white text-lg font-semibold hover:bg-green-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2"
+        >
+          <WhatsAppIcon className="h-5 w-5" />
+          Enviar por WhatsApp
+        </button>
+        <p className="mt-3 text-sm text-gray-500">
+          Se abrirá WhatsApp con tu mensaje listo para enviar. ¿Preferís email? Escribinos a{' '}
+          <a href={`mailto:${BUSINESS.email}`} className="text-primary underline underline-offset-2">
+            {BUSINESS.email}
+          </a>
+          .
+        </p>
+      </div>
     </form>
   );
 };

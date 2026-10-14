@@ -1,76 +1,40 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO -->
+    <!-- SEO por página: el build (scripts/prerender.mjs) reemplaza este bloque en cada HTML -->
+    <!--seo-head-->
+    <title>Óptica en Gualeguaychú | Anteojos y Lentes de Contacto - Óptica Figún</title>
+    <meta name="description" content="Óptica en Gualeguaychú con más de 30 años de experiencia: anteojos recetados, lentes de contacto, lentes de sol y exámenes visuales. Consultá por WhatsApp." />
+    <link rel="canonical" href="https://www.opticafigun.com.ar/" />
+    <!--/seo-head-->
+
     <meta name="author" content="Óptica Figún" />
-    <meta name="description" content="Óptica Figún en Gualeguaychú ofrece atención personalizada, lentes de contacto, anteojos de sol y recetas ópticas." />
-    <meta name="keywords" content="Óptica Gualeguaychú, lentes de sol, anteojos, lentes de contacto, examen de la vista, cristales recetados" />
+    <meta name="theme-color" content="#175c4d" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Óptica Figún | Servicios ópticos en Gualeguaychú" />
-    <meta property="og:description" content="Atención personalizada en anteojos, lentes de contacto y exámenes visuales." />
+    <!-- Ubicación -->
+    <meta name="geo.region" content="AR-E" />
+    <meta name="geo.placename" content="Gualeguaychú" />
+    <meta name="geo.position" content="-33.008554;-58.520560" />
+    <meta name="ICBM" content="-33.008554, -58.520560" />
+
+    <!-- Open Graph / redes sociales -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.opticafigun.com.ar/" />
-    <meta property="og:image" content="https://www.opticafigun.com.ar/portada-modified.png" />
+    <meta property="og:site_name" content="Óptica Figún" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Óptica Figún, óptica en Gualeguaychú" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://www.opticafigun.com.ar/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <!-- Íconos -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-
-    <title>Óptica Figún | Óptica en Gualeguaychú - Lentes de contacto y anteojos</title>
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.opticafigun.com.ar/" />
-
-    <!-- Structured Data - LocalBusiness -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Optician",
-      "name": "Óptica Figún",
-      "description": "Óptica en Gualeguaychú - Lentes de contacto, anteojos de sol, exámenes visuales y recetas ópticas.",
-      "url": "https://www.opticafigun.com.ar",
-      "telephone": "+5493446658195",
-      "email": "opticafigun@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Magnasco 25",
-        "addressLocality": "Gualeguaychú",
-        "addressRegion": "Entre Ríos",
-        "addressCountry": "AR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "-33.00855447502192",
-        "longitude": "-58.52056042206454"
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "16:30",
-          "closes": "19:30"
-        }
-      ],
-      "priceRange": "$$",
-      "image": "https://www.opticafigun.com.ar/portada-modified.png",
-      "sameAs": [
-        "https://www.instagram.com/opticafigun",
-        "https://www.facebook.com/optica.figun/"
-      ]
-    }
-    </script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -80,7 +44,6 @@
 
   <body>
     <div id="root"></div>
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
